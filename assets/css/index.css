@@ -164,6 +164,18 @@ div {
     opacity: .24;
 }
 
+.scroller {
+    overflow-x: scroll;
+    display: flex;
+    scroll-snap-type: x mandatory;
+}
+.item {
+    min-width: 100%;
+    scroll-snap-align: center;
+    padding: 0;
+    margin-left: 2%;
+}
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 767px) {
     body {
         background-size: 600px 1000px;

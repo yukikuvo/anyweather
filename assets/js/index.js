@@ -10,8 +10,8 @@ function search() {
         request.send(null);
         return JSON.parse(request.responseText);
     }
-    let weatherResult = getFileSity(`${mainurl} + ${city} + ${appid}`);
-    let forecastResult = getFileSity(`${forecasturl} + ${city} + ${appid}`);
+    let weatherResult = getFileSity(mainurl + city + appid);
+    let forecastResult = getFileSity(forecasturl + city + appid);
 
     $(document).ready(function () {
         $(".now-city").html(`Today, ${city}`);
