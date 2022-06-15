@@ -2,6 +2,7 @@ function search() {
     let city = prompt("Please enter city", "");
     let appid = '&appid=3c04e135221b465d95d4ac216c9c883a&units=metric';
     let mainurl = 'https://api.openweathermap.org/data/2.5/weather?q=';
+    let forecasturl = 'http://api.openweathermap.org/data/2.5/forecast?q=';
 
     function getFileSity(fileName) {
         let request = new XMLHttpRequest();
@@ -10,48 +11,73 @@ function search() {
         return JSON.parse(request.responseText);
     }
     let weatherResult = getFileSity(`${mainurl} + ${city} + ${appid}`);
-    // let weatherIcon = weatherResult['weather'][0]['icon'];
+    let forecastResult = getFileSity(`${forecasturl} + ${city} + ${appid}`);
 
     $(document).ready(function () {
-        $(".weather-now-city").html(`Today, ${city}`);
+        $(".now-city").html(`Today, ${city}`);
     });
     $(document).ready(function () {
-        $(".weather-now-temp").html(`Now: ${weatherResult['main']['temp']}°C`);
+        $(".now-temp").html(`Now: ${weatherResult['main']['temp']}°C`);
     });
     $(document).ready(function () {
-        $(".weather-text").html(`Description: ${weatherResult['weather'][0]['description']}`);
+        $(".now-min").html(`Minimum: ${weatherResult['main']['temp_min']}°C`);
+    });
+    $(document).ready(function () {
+        $(".now-max").html(`Maximum: ${weatherResult['main']['temp_max']}°C`);
+    });
+    $(document).ready(function () {
+        $(".now-hum").html(`Humidity: ${weatherResult['main']['humidity']}%`);
+    });
+    $(document).ready(function () {
+        $(".now-view").html(`Visibility: ${weatherResult['visibility']} m`);
+    });
+    $(document).ready(function () {
+        $(".now-wind").html(`Wind: ${weatherResult['wind']['speed']} kmh`);
+    });
+    $(document).ready(function () {
+        $(".now-cloud").html(`Clouds: ${weatherResult['clouds']['all']}%`);
+    });
+    $(document).ready(function () {
+        $(".now-text").html(`Description: ${weatherResult['weather'][0]['description']}`);
     });
 
     if (weatherResult['weather'][0]['main'] == 'Clouds') {
-        document.body.style.background = "url(assets/img/cloud.jpg) no-repeat";
+        document.getElementsByTagName('body')[0].style.cssText = ` 
+            background: url(assets/img/cloud.jpg) no-repeat;
+            background-size: 1366px 926px;
+            background-color: black;
+        `
     } else if (weatherResult['weather'][0]['main'] == 'Clear') {
         document.getElementsByTagName('body')[0].style.cssText = ` 
             background: url(assets/img/sun.jpg) no-repeat;
-            background-size: 1366px 768px;
+            background-size: 1366px 926px;
+            background-color: black;
         `
     } else if (weatherResult['weather'][0]['main'] == 'Rain') {
         document.getElementsByTagName('body')[0].style.cssText = ` 
             background: url(assets/img/rain.jpg) no-repeat;
-            background-size: 1366px 768px;
+            background-size: 1366px 926px;
+            background-color: black;
         `
     }
-    weekForecast();
-}
 
-function timeConverter(UNIX_timestamp) {
-    var a = new Date(UNIX_timestamp * 1000);
-    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    var year = a.getFullYear();
-    var month = months[a.getMonth()];
-    var date = a.getDate();
-    var hour = a.getHours();
-    var min = a.getMinutes();
-    var sec = a.getSeconds();
-    var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
-    return time;
-}
-// console.log(timeConverter(1655229600));
+    var step;
+    for (step = 0; step < 40; step++) {
+        var forecastday = document.getElementsByClassName("forecast-day")[step];
+        forecastday.textContent += `${forecastResult['list'][step]['dt_txt']}`;
+        var forecasttemp = document.getElementsByClassName("forecast-temp")[step];
+        forecasttemp.textContent += `Main temp: ${forecastResult['list'][step]['main']['temp']}°C`;
+        var forecastmin = document.getElementsByClassName("forecast-min")[step];
+        forecastmin.textContent += `Minimum: ${forecastResult['list'][step]['main']['temp_min']}°C`;
+        var forecastmax = document.getElementsByClassName("forecast-max")[step];
+        forecastmax.textContent += `Maximum: ${forecastResult['list'][step]['main']['temp_max']}°C`;
+        var forecasthum = document.getElementsByClassName("forecast-hum")[step];
+        forecasthum.textContent += `Humidity: ${forecastResult['list'][step]['main']['humidity']}%`;
+        var forecastwind = document.getElementsByClassName("forecast-wind")[step];
+        forecastwind.textContent += `Wind: ${forecastResult['list'][step]['wind']['speed']} kmh`;
+        var forecastcloud = document.getElementsByClassName("forecast-cloud")[step];
+        forecastcloud.textContent += `Clouds: ${forecastResult['list'][step]['clouds']['all']}%`;
+    }
 
-function weekForecast() {
-
+    document.getElementsByClassName('main')[0].style.display = "block"; 
 }
