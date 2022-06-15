@@ -2,7 +2,7 @@ function search() {
     let city = prompt("Please enter city", "");
     let appid = '&appid=3c04e135221b465d95d4ac216c9c883a&units=metric';
     let mainurl = 'https://api.openweathermap.org/data/2.5/weather?q=';
-    let forecasturl = 'http://api.openweathermap.org/data/2.5/forecast?q=';
+    let forecasturl = 'https://api.openweathermap.org/data/2.5/forecast?q=';
 
     function getFileSity(fileName) {
         let request = new XMLHttpRequest();
