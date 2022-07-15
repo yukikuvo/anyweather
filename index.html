@@ -8,20 +8,20 @@
     <link href="fonts/SFCompactRounded-Regular.otf" rel="stylesheet">
     <script>
         if ('serviceWorker' in navigator) {
-          window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw.js').then(function(registration) {
-              // Registration was successful
-              console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }, function(err) {
-              // registration failed :(
-              console.log('ServiceWorker registration failed: ', err);
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js').then(function (registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration
+                        .scope);
+                }, function (err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
             });
-          });
         }
     </script>
     <title>Anyweather</title>
     <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/list.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
@@ -32,7 +32,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
@@ -45,474 +45,524 @@
 
 <body>
     <center>
-        <div>
-            <h1>Anyweather</h1>
-            <button id="search" onclick="search();" class="button-77" role="button">Search</button>
+        <!--main-->
+        <div id="Home" class="w3-container city">
+            <div class="div">
+                <h1>Anyweather</h1>
+                <button id="search" onclick="search();" class="button-77" role="button">Search</button>
+                <br>
+                <div id="history" class="div">
+
+                </div>
+            </div>
+
+            <div class="now-day-weather div">
+                <h1 class="now-city"></h1>
+                <h2 class="now-temp"></h2>
+                <h2 class="now-min"></h2>
+                <h2 class="now-max"></h2>
+                <h2 class="now-hum"></h2>
+                <h2 class="now-view"></h2>
+                <h2 class="now-wind"></h2>
+                <h2 class="now-cloud"></h2>
+            </div>
+
+            <div class="toforecast-day-text div">
+                <h2 class="now-text">Feels like °C. Moderate breeze</h2>
+            </div>
+        </div>
+
+        <div id="Forecast" class="w3-container city">
+
+            <div class="scroller">
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card div">
+                        <h2 class="forecast-day"></h2>
+                        <h2 class="forecast-temp"></h2>
+                        <h2 class="forecast-min"></h2>
+                        <h2 class="forecast-max"></h2>
+                        <h2 class="forecast-hum"></h2>
+                        <h2 class="forecast-wind"></h2>
+                        <h2 class="forecast-cloud"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Settings" class="w3-container city div" style="display:none">
+            <h1>Settings</h1>
+
+            <button>Mode Switcher</button>
         </div>
     </center>
 
-    <center class="main">
-        <div class="now-day-weather">
-            <h1 class="now-city"></h1>
-            <h2 class="now-temp"></h2>
-            <h2 class="now-min"></h2>
-            <h2 class="now-max"></h2>
-            <h2 class="now-hum"></h2>
-            <h2 class="now-view"></h2>
-            <h2 class="now-wind"></h2>
-            <h2 class="now-cloud"></h2>
-        </div>
+    
 
-        <div class="toforecast-day-text">
-            <h2 class="now-text">Feels like °C. Moderate breeze</h2>
+    <div class="bottom-bar">
+        <div class="w3-bar w3-black">
+            <center>
+                <button class="w3-bar-item w3-button btn-6" onclick="openCity('Home')">Home</button>
+                <button class="w3-bar-item w3-button btn-6" onclick="openCity('Forecast')">Forecast</button>
+                <button class="w3-bar-item w3-button btn-6" onclick="openCity('Settings')">Settings</button>
+            </center>            
         </div>
+    </div>
 
-        <div class="scroller">
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="card">
-                    <h2 class="forecast-day"></h2>
-                    <h2 class="forecast-temp"></h2>
-                    <h2 class="forecast-min"></h2>
-                    <h2 class="forecast-max"></h2>
-                    <h2 class="forecast-hum"></h2>
-                    <h2 class="forecast-wind"></h2>
-                    <h2 class="forecast-cloud"></h2>
-                </div>
-            </div>
+    <center>
+        <div class="welcome">
+            <h1>Welcome</h1>
+            <h2>Anyweather - the best weather app in the world!</h2>
+
+            <p>What`s new ?</p>
+            <ul>
+                <li>City history</li>
+                <li>Weekly weatther forecast</li>
+                <li>New dark mode</li>
+            </ul>
+
+            <button onclick="document.location.reload(true);">Close</button>
         </div>
     </center>
 
     <script src="assets/js/index.js"></script>
-    <script src="assets/js/list.js"></script>
+    <script defer="defer" src="assets/js/starter.js"></script>
+
+    <script>
+        document.getElementById('Home').style.display = "block";
+        document.getElementsByClassName("city")[1].style.display = "none";
+        document.getElementsByClassName("city")[2].style.display = "none";
+        document.getElementsByClassName('now-day-weather')[0].style.display = "none";
+        document.getElementsByClassName('toforecast-day-text')[0].style.display = "none";
+    </script>
 </body>
 
 </html>

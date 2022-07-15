@@ -5,6 +5,12 @@ body {
     font-weight: bolder;
 }
 
+* {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
 h1,
 h2,
 p,
@@ -29,9 +35,25 @@ h1 {
     border-radius: 8px;
 }
 
+.welcome {
+    background: wheat;
+    width: 50%;
+    height: 50%;
+    border-radius: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    margin: 25% 25% 25% 25%;
+    box-shadow: 100px 100px 100px 1000px rgba(0, 0, 0, 0.959);
+    display: none;
+}
+
 .card h2 {
     background: green;
-    width: 100%;
+    width: 90%;
     padding: 2%;
     border-radius: 8px;
 }
@@ -47,7 +69,7 @@ p {
     border-radius: 8px;
 }
 
-div {
+.div {
     background: rgba(255, 255, 255, 0.70);
     border-radius: 8px;
     padding: 1%;
@@ -55,6 +77,13 @@ div {
     width: 60%;
     height: auto;
     display: inline-block;
+}
+
+#history {
+    width: 50%;
+    height: 100px;
+    background: gray;
+    overflow-y: scroll;
 }
 
 .weather-now-img {
@@ -169,6 +198,7 @@ div {
     display: flex;
     scroll-snap-type: x mandatory;
 }
+
 .item {
     min-width: 100%;
     scroll-snap-align: center;
@@ -176,12 +206,41 @@ div {
     margin-left: 2%;
 }
 
+.bottom-bar {
+    position: fixed;
+    padding: 2%;
+    background: burlywood;
+    width: 100%;
+    bottom: 0;
+    margin-left: -3%;
+}
+
+[class^=btn-] {
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 210px;
+    height: 60px;
+    text-transform: uppercase;
+    border: 1px solid currentColor;
+}
+
+.btn-6:active {
+    background-color: #0da746;
+}
+
+.w3-button {
+    padding: 1%;
+    font-size: 1em;
+    width: 30%;
+}
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 767px) {
     body {
         background-size: 600px 1000px;
     }
 
-    div {
+    .div {
         background: rgba(255, 255, 255, 0.68);
         border-radius: 8px;
         padding: 1%;
@@ -190,7 +249,7 @@ div {
         height: auto;
         display: inline-block;
     }
-    
+
     .now-day-weather h2 {
         width: 70%;
     }
