@@ -56,8 +56,12 @@
                 </div>
             </div>
 
-            <div class="now-day-weather div">
+            <div class="now-day-weather">
                 <h1 class="now-city"></h1>
+                <h1 class="now-text"></h1>                
+            </div>
+
+            <div class="now-day-weather">
                 <h2 class="now-temp"></h2>
                 <h2 class="now-min"></h2>
                 <h2 class="now-max"></h2>
@@ -67,9 +71,7 @@
                 <h2 class="now-cloud"></h2>
             </div>
 
-            <div class="toforecast-day-text div">
-                <h2 class="now-text">Feels like °C. Moderate breeze</h2>
-            </div>
+            
         </div>
         <br><br>
 
@@ -522,7 +524,7 @@
         <div id="Settings" class="w3-container city div" style="display:none">
             <h1>Settings</h1>
 
-            <button>Mode Switcher</button>
+            <button class="darkmode" onclick="darkmode();">Mode Switcher</button>
         </div>
     </center>
 
@@ -556,6 +558,7 @@
 
     <script src="assets/js/index.js"></script>
     <script defer="defer" src="assets/js/starter.js"></script>
+    <script src="assets/js/darkmode.js"></script>
 
     <script>
         document.getElementById('Home').style.display = "block";

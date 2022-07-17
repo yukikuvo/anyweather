@@ -1,0 +1,3 @@
+function darkmode () {
+    alert('hello');
+}

@@ -29,10 +29,22 @@ h1 {
 }
 
 .now-day-weather h2 {
-    background: green;
-    width: 35%;
-    padding: 1%;
+    background: rgba(77, 114, 77, 0.781);
+    width: 40%;
+    height: 45%;
+    padding: 2%;
     border-radius: 8px;
+    float: left;
+    margin-left: 3.5%;
+    margin-top: 2%;
+}
+
+.now-day-weather {
+    background: rgba(255, 255, 255, 0.70);
+    border-radius: 8px;
+    width: 60%;
+    height: auto;
+    display: inline-block;
 }
 
 .welcome {
@@ -52,10 +64,16 @@ h1 {
 }
 
 .card h2 {
-    background: green;
-    width: 90%;
+    width: 40%;
+    height: 45%;
     padding: 2%;
     border-radius: 8px;
+    background: rgba(77, 114, 77, 0.781);
+    height: 45%;
+    padding: 2%;
+    float: left;
+    margin-left: 3.5%;
+    margin-top: 2%;
 }
 
 p {
