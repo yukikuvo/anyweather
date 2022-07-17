@@ -70,19 +70,19 @@ function search() {
     var step;
     for (step = 0; step < 40; step++) {
         var forecastday = document.getElementsByClassName("forecast-day")[step];
-        forecastday.textContent += `${forecastResult['list'][step]['dt_txt']}`;
+        forecastday.innerHTML = (`${forecastResult['list'][step]['dt_txt']}`);
         var forecasttemp = document.getElementsByClassName("forecast-temp")[step];
-        forecasttemp.textContent += `Main temp: ${forecastResult['list'][step]['main']['temp']}°C`;
+        forecasttemp.innerHTML = (`Main temp: ${forecastResult['list'][step]['main']['temp']}°C`);
         var forecastmin = document.getElementsByClassName("forecast-min")[step];
-        forecastmin.textContent += `Minimum: ${forecastResult['list'][step]['main']['temp_min']}°C`;
+        forecastmin.innerHTML = (`Minimum: ${forecastResult['list'][step]['main']['temp_min']}°C`);
         var forecastmax = document.getElementsByClassName("forecast-max")[step];
-        forecastmax.textContent += `Maximum: ${forecastResult['list'][step]['main']['temp_max']}°C`;
+        forecastmax.innerHTML = (`Maximum: ${forecastResult['list'][step]['main']['temp_max']}°C`);
         var forecasthum = document.getElementsByClassName("forecast-hum")[step];
-        forecasthum.textContent += `Humidity: ${forecastResult['list'][step]['main']['humidity']}%`;
+        forecasthum.innerHTML = (`Humidity: ${forecastResult['list'][step]['main']['humidity']}%`);
         var forecastwind = document.getElementsByClassName("forecast-wind")[step];
-        forecastwind.textContent += `Wind: ${forecastResult['list'][step]['wind']['speed']} kmh`;
+        forecastwind.innerHTML = (`Wind: ${forecastResult['list'][step]['wind']['speed']} kmh`);
         var forecastcloud = document.getElementsByClassName("forecast-cloud")[step];
-        forecastcloud.textContent += `Clouds: ${forecastResult['list'][step]['clouds']['all']}%`;
+        forecastcloud.innerHTML = (`Clouds: ${forecastResult['list'][step]['clouds']['all']}%`);
     }
 }
 
@@ -249,19 +249,19 @@ function cityfromhistory(mycityname) {
     var step;
     for (step = 0; step < 40; step++) {
         var forecastday = document.getElementsByClassName("forecast-day")[step];
-        forecastday.textContent += `${timeConverter(forecastResult['list'][step]['dt'])}`;
+        forecastday.innerHTML = (`${timeConverter(forecastResult['list'][step]['dt'])}`);
         var forecasttemp = document.getElementsByClassName("forecast-temp")[step];
-        forecasttemp.textContent += 'Main temp: ' + `<br> ${forecastResult['list'][step]['main']['temp']}°C`;
+        forecasttemp.innerHTML = (`Main temp: <br> ${forecastResult['list'][step]['main']['temp']}°C`);
         var forecastmin = document.getElementsByClassName("forecast-min")[step];
-        forecastmin.textContent += 'Minimum: :' + `<br> ${forecastResult['list'][step]['main']['temp_min']}°C`;
+        forecastmin.innerHTML = (`Minimum: <br> ${forecastResult['list'][step]['main']['temp_min']}°C`);
         var forecastmax = document.getElementsByClassName("forecast-max")[step];
-        forecastmax.textContent += 'Maximum: :' + `<br> ${forecastResult['list'][step]['main']['temp_max']}°C`;
+        forecastmax.innerHTML = (`Maximum: <br> ${forecastResult['list'][step]['main']['temp_max']}°C`);
         var forecasthum = document.getElementsByClassName("forecast-hum")[step];
-        forecasthum.textContent += 'Humidity: ' + `<br> ${forecastResult['list'][step]['main']['humidity']}%`;
+        forecasthum.innerHTML = (`Humidity: <br> ${forecastResult['list'][step]['main']['humidity']}%`);
         var forecastwind = document.getElementsByClassName("forecast-wind")[step];
-        forecastwind.textContent += 'Wind: ' + `<br> ${forecastResult['list'][step]['wind']['speed']} kmh`;
+        forecastwind.innerHTML = (`Wind: <br> ${forecastResult['list'][step]['wind']['speed']} kmh`);
         var forecastcloud = document.getElementsByClassName("forecast-cloud")[step];
-        forecastcloud.textContent += 'Clouds: ' + `<br> ${forecastResult['list'][step]['clouds']['all']}%`;
+        forecastcloud.innerHTML = (`Clouds: <br> ${forecastResult['list'][step]['clouds']['all']}%`);
     }
 
 
