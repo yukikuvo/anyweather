@@ -73,7 +73,7 @@ p {
     background: rgba(255, 255, 255, 0.70);
     border-radius: 8px;
     padding: 1%;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
     width: 60%;
     height: auto;
     display: inline-block;
@@ -209,10 +209,12 @@ p {
 .bottom-bar {
     position: fixed;
     padding: 2%;
-    background: burlywood;
+    background: #74A08F;
     width: 100%;
     bottom: 0;
     margin-left: -3%;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
 }
 
 [class^=btn-] {
@@ -233,6 +235,8 @@ p {
     padding: 1%;
     font-size: 1em;
     width: 30%;
+    border-radius: 8px;
+    border: 0px;
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 767px) {

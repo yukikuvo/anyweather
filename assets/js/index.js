@@ -249,7 +249,7 @@ function cityfromhistory(mycityname) {
     var step;
     for (step = 0; step < 40; step++) {
         var forecastday = document.getElementsByClassName("forecast-day")[step];
-        forecastday.textContent += `${forecastResult['list'][step]['dt_txt']}`;
+        forecastday.textContent += `${timeConverter(forecastResult['list'][step]['dt'])}`;
         var forecasttemp = document.getElementsByClassName("forecast-temp")[step];
         forecasttemp.textContent += `Main temp: ${forecastResult['list'][step]['main']['temp']}°C`;
         var forecastmin = document.getElementsByClassName("forecast-min")[step];
@@ -263,4 +263,17 @@ function cityfromhistory(mycityname) {
         var forecastcloud = document.getElementsByClassName("forecast-cloud")[step];
         forecastcloud.textContent += `Clouds: ${forecastResult['list'][step]['clouds']['all']}%`;
     }
+
+
+
+function timeConverter(UNIX_timestamp){
+    var a = new Date(UNIX_timestamp * 1000);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + '00' ;
+    return time;
+  }
 }
