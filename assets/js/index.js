@@ -187,7 +187,7 @@ function cityfromhistory(mycityname) {
     let forecasturl = 'https://api.openweathermap.org/data/2.5/forecast?q=';
 
     document.getElementsByClassName('now-day-weather')[0].style.display = "block";
-    document.getElementsByClassName('toforecast-day-text')[0].style.display = "block";
+    //document.getElementsByClassName('toforecast-day-text')[0].style.display = "block";
 
     function getFileSity(fileName) {
         let request = new XMLHttpRequest();
@@ -202,25 +202,25 @@ function cityfromhistory(mycityname) {
         $(".now-city").html(`Today, ${mycityname}`);
     });
     $(document).ready(function () {
-        $(".now-temp").html(`Now: ${weatherResult['main']['temp']}°C`);
+        $(".now-temp").html(`Now: <br> ${weatherResult['main']['temp']}°C`);
     });
     $(document).ready(function () {
-        $(".now-min").html(`Minimum: ${weatherResult['main']['temp_min']}°C`);
+        $(".now-min").html(`Minimum: <br> ${weatherResult['main']['temp_min']}°C`);
     });
     $(document).ready(function () {
-        $(".now-max").html(`Maximum: ${weatherResult['main']['temp_max']}°C`);
+        $(".now-max").html(`Maximum: <br> ${weatherResult['main']['temp_max']}°C`);
     });
     $(document).ready(function () {
-        $(".now-hum").html(`Humidity: ${weatherResult['main']['humidity']}%`);
+        $(".now-hum").html(`Humidity: <br> ${weatherResult['main']['humidity']}%`);
     });
     $(document).ready(function () {
-        $(".now-view").html(`Visibility: ${weatherResult['visibility']} m`);
+        $(".now-view").html(`Visibility: <br> ${weatherResult['visibility']} m`);
     });
     $(document).ready(function () {
-        $(".now-wind").html(`Wind: ${weatherResult['wind']['speed']} kmh`);
+        $(".now-wind").html(`Wind: <br> ${weatherResult['wind']['speed']} kmh`);
     });
     $(document).ready(function () {
-        $(".now-cloud").html(`Clouds: ${weatherResult['clouds']['all']}%`);
+        $(".now-cloud").html(`Clouds: <br> ${weatherResult['clouds']['all']}%`);
     });
     $(document).ready(function () {
         $(".now-text").html(`Description: ${weatherResult['weather'][0]['description']}`);
@@ -251,17 +251,17 @@ function cityfromhistory(mycityname) {
         var forecastday = document.getElementsByClassName("forecast-day")[step];
         forecastday.textContent += `${timeConverter(forecastResult['list'][step]['dt'])}`;
         var forecasttemp = document.getElementsByClassName("forecast-temp")[step];
-        forecasttemp.textContent += `Main temp: ${forecastResult['list'][step]['main']['temp']}°C`;
+        forecasttemp.textContent += 'Main temp: ' + `<br> ${forecastResult['list'][step]['main']['temp']}°C`;
         var forecastmin = document.getElementsByClassName("forecast-min")[step];
-        forecastmin.textContent += `Minimum: ${forecastResult['list'][step]['main']['temp_min']}°C`;
+        forecastmin.textContent += 'Minimum: :' + `<br> ${forecastResult['list'][step]['main']['temp_min']}°C`;
         var forecastmax = document.getElementsByClassName("forecast-max")[step];
-        forecastmax.textContent += `Maximum: ${forecastResult['list'][step]['main']['temp_max']}°C`;
+        forecastmax.textContent += 'Maximum: :' + `<br> ${forecastResult['list'][step]['main']['temp_max']}°C`;
         var forecasthum = document.getElementsByClassName("forecast-hum")[step];
-        forecasthum.textContent += `Humidity: ${forecastResult['list'][step]['main']['humidity']}%`;
+        forecasthum.textContent += 'Humidity: ' + `<br> ${forecastResult['list'][step]['main']['humidity']}%`;
         var forecastwind = document.getElementsByClassName("forecast-wind")[step];
-        forecastwind.textContent += `Wind: ${forecastResult['list'][step]['wind']['speed']} kmh`;
+        forecastwind.textContent += 'Wind: ' + `<br> ${forecastResult['list'][step]['wind']['speed']} kmh`;
         var forecastcloud = document.getElementsByClassName("forecast-cloud")[step];
-        forecastcloud.textContent += `Clouds: ${forecastResult['list'][step]['clouds']['all']}%`;
+        forecastcloud.textContent += 'Clouds: ' + `<br> ${forecastResult['list'][step]['clouds']['all']}%`;
     }
 
 
