@@ -48,8 +48,8 @@
         <!--main-->
         <div id="Home" class="w3-container city">
             <div class="div">
-                <h1>Anyweather</h1>
-                <button id="search" onclick="search();" class="button-77" role="button">Search</button>
+                <h1>Anyweather <button id="search" onclick="search();" style="font-size: 1em;background: lightgray;border: 0;border-radius: 8px;">🔍</button></h1>
+                
                 <br>
                 <div id="history" class="div">
 
@@ -525,6 +525,7 @@
             <h1>Settings</h1>
 
             <button class="darkmode" onclick="darkmode();">Mode Switcher</button>
+            <button class="resetall" onclick="showreset();">Reset data</button>
         </div>
     </center>
 
@@ -556,6 +557,16 @@
         </div>
     </center>
 
+    <center>
+        <div class="modal-reset">
+            <h1>Delete data</h1>
+            <p>Do you confirm, reseting all data of Anyweather app?</p>
+
+            <button class="resetyes btnreset" onclick="resetall(true);">Delete</button> <br>
+            <button class="resetno btnreset btnresettwo" onclick="resetall(false);">Calcel</button>
+        </div>
+    </center>
+
     <script src="assets/js/index.js"></script>
     <script defer="defer" src="assets/js/starter.js"></script>
     <script src="assets/js/darkmode.js"></script>
@@ -565,7 +576,6 @@
         document.getElementsByClassName("city")[1].style.display = "none";
         document.getElementsByClassName("city")[2].style.display = "none";
         document.getElementsByClassName('now-day-weather')[0].style.display = "none";
-        document.getElementsByClassName('toforecast-day-text')[0].style.display = "none";
     </script>
 </body>
 

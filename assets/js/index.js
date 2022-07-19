@@ -8,7 +8,7 @@ function search() {
     saveHistory(city);
 
     document.getElementsByClassName('now-day-weather')[0].style.display = "block";
-    document.getElementsByClassName('toforecast-day-text')[0].style.display = "block";
+    //document.getElementsByClassName('toforecast-day-text')[0].style.display = "block";
 
     function getFileSity(fileName) {
         let request = new XMLHttpRequest();

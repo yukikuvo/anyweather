@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(isNotFirstUserActivity === 'true') {
       const currentItemToDisplayNone = document.querySelector('h1');
-      currentItemToDisplayNone.style.display = 'none';
+      //currentItemToDisplayNone.style.display = 'none';
 
     }
       localStorage.setItem('welcome', 'true');
